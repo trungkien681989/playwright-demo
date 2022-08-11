@@ -1,1 +1,1 @@
-# playwright-demo
+# playwright-owasp-juice-shop
