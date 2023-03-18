@@ -2,8 +2,6 @@ import { Page } from '@playwright/test';
 import { BasePage } from '../base/base-page';
 
 export class MainPage extends BasePage {
-  readonly page: Page;
-
   constructor(page: Page) {
     super(page);
   }
