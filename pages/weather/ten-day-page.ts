@@ -28,76 +28,70 @@ export class TenDayPage extends MainPage {
     await this.verifyElementVisible(this.dailyForecastElements.dateRowCollapsed(index.toString()));
   }
 
-  // Return: "Sun 19 | Day"
   async retrieveDayTitle(index: number) {
     const dayTemperature = await this.page
       .locator(this.dailyForecastElements.dateRowExpanded(index.toString()))
       .locator(this.dailyForecastElements.dateTitle)
       .nth(0)
       .innerText();
-    return dayTemperature;
+    return dayTemperature; // Return: "Sun 19 | Day"
   }
 
-  // Return: "31°"
   async retrieveDayTemperature(index: number) {
     const dayTemperature = await this.page
       .locator(this.dailyForecastElements.dateRowExpanded(index.toString()))
       .locator(this.dailyForecastElements.temperatureValue)
       .nth(0)
       .innerText();
-    return dayTemperature;
+    return dayTemperature; // Return: "31°"
   }
 
-  // Return: "75%"
   async retrieveDayHumidity(index: number) {
     const dayHumidity = await this.page
       .locator(this.dailyForecastElements.dateRowExpanded(index.toString()))
       .locator(this.dailyForecastElements.humidityValue)
       .nth(0)
       .innerText();
-    return dayHumidity;
+    return dayHumidity; // Return: "75%"
   }
 
-  // Return: "Sun 19 | Night"
   async retrieveNightTitle(index: number) {
     const dayTemperature = await this.page
       .locator(this.dailyForecastElements.dateRowExpanded(index.toString()))
       .locator(this.dailyForecastElements.dateTitle)
       .nth(1)
       .innerText();
-    return dayTemperature;
+    return dayTemperature; // Return: "Sun 19 | Night"
   }
 
-  // Return: "25°"
   async retrieveNightTemperature(index: number) {
     const nightTemperature = await this.page
       .locator(this.dailyForecastElements.dateRowExpanded(index.toString()))
       .locator(this.dailyForecastElements.temperatureValue)
       .nth(1)
       .innerText();
-    return nightTemperature;
+    return nightTemperature; // Return: "25°"
   }
 
-  // Return: "85%"
   async retrieveNightHumidity(index: number) {
     const nightHumidity = await this.page
       .locator(this.dailyForecastElements.dateRowExpanded(index.toString()))
       .locator(this.dailyForecastElements.humidityValue)
       .nth(1)
       .innerText();
-    return nightHumidity;
+    return nightHumidity; // Return: "85%"
   }
 
   // For the demo purpose just retrieve Temperature and Humidity
   async retrieveWeatherInfo(numberOfDates: number) {
     for (let i = 0; i < numberOfDates; i++) {
-      await this.expandDateRow(i);
-      await this.retrieveDayTitle(i);
-      await this.retrieveDayTemperature(i);
-      await this.retrieveDayHumidity(i);
-      await this.retrieveNightTitle(i);
-      await this.retrieveNightTemperature(i);
-      await this.retrieveNightHumidity(i);
+      console.log(await this.expandDateRow(i));
+      console.log(await this.retrieveDayTitle(i));
+      console.log(await this.retrieveDayTemperature(i));
+      console.log(await this.retrieveDayHumidity(i));
+      console.log(await this.retrieveNightTitle(i));
+      console.log(await this.retrieveNightTemperature(i));
+      console.log(await this.retrieveNightHumidity(i));
     }
   }
 
