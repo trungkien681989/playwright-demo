@@ -9,8 +9,8 @@ export class TenDayPage extends MainPage {
   /* ============ Elements =============== */
 
   readonly dailyForecastElements = {
-    dateRowExpanded: (index: string) => `[data-testid="ExpandedDetailsCard"][id="detailIndex${index}"][data-track-string="false"]`,
     dateRowCollapsed: (index: string) => `[data-testid="ExpandedDetailsCard"][id="detailIndex${index}"][data-track-string="detailsExpand"]`,
+    dateRowExpanded: (index: string) => `[data-testid="ExpandedDetailsCard"][id="detailIndex${index}"][data-track-string="false"]`,
     dateTitle: `[data-testid="DailyContent"] h3`,
     temperatureValue: `[data-testid="ConditionsSummary"] [data-testid="TemperatureValue"]`,
     humidityValue: `[data-testid="HumiditySection"] [data-testid="PercentageValue"]`,
@@ -19,13 +19,19 @@ export class TenDayPage extends MainPage {
   /* ============ Methods =============== */
 
   async expandDateRow(index: number) {
-    await this.waitAndClick(this.dailyForecastElements.dateRowCollapsed(index.toString()));
-    await this.verifyElementVisible(this.dailyForecastElements.dateRowExpanded(index.toString()));
+    const isCollapsed = await this.page.isVisible(this.dailyForecastElements.dateRowCollapsed(index.toString()));
+    if (isCollapsed) {
+      await this.waitAndClick(this.dailyForecastElements.dateRowCollapsed(index.toString()));
+      await this.verifyElementVisible(this.dailyForecastElements.dateRowExpanded(index.toString()));
+    }
   }
 
   async collapseDateRow(index: number) {
-    await this.waitAndClick(this.dailyForecastElements.dateRowExpanded(index.toString()));
-    await this.verifyElementVisible(this.dailyForecastElements.dateRowCollapsed(index.toString()));
+    const isExpanded = await this.page.isVisible(this.dailyForecastElements.dateRowExpanded(index.toString()));
+    if (isExpanded) {
+      await this.waitAndClick(this.dailyForecastElements.dateRowExpanded(index.toString()));
+      await this.verifyElementVisible(this.dailyForecastElements.dateRowCollapsed(index.toString()));
+    }
   }
 
   async retrieveDayTitle(index: number) {
@@ -84,8 +90,8 @@ export class TenDayPage extends MainPage {
 
   // For the demo purpose just retrieve Temperature and Humidity
   async retrieveWeatherInfo(numberOfDates: number) {
-    for (let i = 0; i < numberOfDates; i++) {
-      console.log(await this.expandDateRow(i));
+    for (let i = 1; i <= numberOfDates; i++) {
+      await this.expandDateRow(i);
       console.log(await this.retrieveDayTitle(i));
       console.log(await this.retrieveDayTemperature(i));
       console.log(await this.retrieveDayHumidity(i));
