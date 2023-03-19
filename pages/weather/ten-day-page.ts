@@ -91,6 +91,14 @@ export class TenDayPage extends MainPage {
 
   // For the demo purpose just retrieve Temperature and Humidity
   async retrieveWeatherInfo(numberOfDates: number) {
+    // Maxinum number of dates show on UI is 15
+    if (numberOfDates > 15) {
+      numberOfDates = 15;
+    }
+    // Minimum number of dates allowed is 1
+    if (numberOfDates < 1) {
+      numberOfDates = 1;
+    }
     let jsonArray = [{}];
     for (let i = 1; i <= numberOfDates; i++) {
       await this.expandDateRow(i);
