@@ -56,6 +56,10 @@ From the command line in the project's root directory:
    npm run test:prod-headed
 ```
 
+## Tests Output
+
+After the test finish. An output JSON file named `output.json` will be generated in the root directory. It contains weather info (Temperature, Humidity) of Singapore for Day and Night in next 10 days.
+
 ## Tests Report
 
 All output file and report is stored in `./testOutput` folder. You can view both Allure and HTML report.
