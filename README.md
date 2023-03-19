@@ -72,9 +72,9 @@ All output file and report is stored in `./testOutput` folder. You can view both
     npm run allure
 ```
 
-<img width="1456" alt="image" src="https://user-images.githubusercontent.com/49904115/226160182-856de4c6-3f76-4621-8ce0-4a5c5df5a263.png">
+![image](https://user-images.githubusercontent.com/49904115/226183572-378e5947-48ae-4a7c-8c0b-1099aa595c9b.png)
 
-<img width="1461" alt="image" src="https://user-images.githubusercontent.com/49904115/226160195-e24cbb50-bb23-4ab5-ac0a-64d3122d6a3d.png">
+![image](https://user-images.githubusercontent.com/49904115/226183625-5d952da2-31b7-4ac8-8fa4-1077bf184a08.png)
 
 - Show HTML test report:
 
@@ -82,7 +82,9 @@ All output file and report is stored in `./testOutput` folder. You can view both
    npx playwright show-report test-output/html
 ```
 
-<img width="1021" alt="image" src="https://user-images.githubusercontent.com/49904115/226160103-a437498b-cd01-49d5-bb68-610ca15c381f.png">
+![image](https://user-images.githubusercontent.com/49904115/226183172-4291f595-e606-4983-8599-aa121aa2c774.png)
+
+![image](https://user-images.githubusercontent.com/49904115/226183242-287fd003-5149-41f3-b51f-5ac3463eb75d.png)
 
 ## Github Action
 
