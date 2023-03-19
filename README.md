@@ -8,6 +8,7 @@ Automation Framework for automating end-to-end tests based on Playwright. It pro
 4. [HTML Report](https://playwright.dev/docs/test-reporters#html-reporter)
 5. [Allure Report](https://www.npmjs.com/package/allure-playwright)
 6. Support test on multiple enviroments (test, uat, prod, etc.)
+7. Integrate with CI/CD using Github Action
 
 ## Installation
 
@@ -83,14 +84,6 @@ All output file and report is stored in `./testOutput` folder. You can view both
 
 <img width="1021" alt="image" src="https://user-images.githubusercontent.com/49904115/226160103-a437498b-cd01-49d5-bb68-610ca15c381f.png">
 
-## Reference
-
-- To show all Playwrigt option commnad :
-
-```bash
-   npx playwright --help
-```
-
 ## Github Action
 
 The tests can be triggered on the cloud using Github Action. Below is an example of a run:
@@ -98,3 +91,11 @@ The tests can be triggered on the cloud using Github Action. Below is an example
 https://github.com/trungkien681989/playwright-demo/actions/runs/4459482123/jobs/7831963697
 
 <img width="1433" alt="image" src="https://user-images.githubusercontent.com/49904115/226160065-54eb5a40-c6fd-4e2e-8478-244dfe988ab3.png">
+
+## Reference
+
+- To show all Playwrigt option commnad :
+
+```bash
+   npx playwright --help
+```
