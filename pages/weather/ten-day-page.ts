@@ -10,8 +10,8 @@ export class TenDayPage extends MainPage {
   /* ============ Elements =============== */
 
   readonly dailyForecastElements = {
-    dateRowCollapsed: (index: string) => `[data-testid="ExpandedDetailsCard"][id="detailIndex${index}"][data-track-string="detailsExpand"]`,
-    dateRowExpanded: (index: string) => `[data-testid="ExpandedDetailsCard"][id="detailIndex${index}"][data-track-string="false"]`,
+    dateRowCollapsed: (index: string) => `[id="detailIndex${index}"][data-track-string="detailsExpand"]`,
+    dateRowExpanded: (index: string) => `[id="detailIndex${index}"][data-track-string="false"]`,
     dateTitle: `[data-testid="DailyContent"] h3`,
     temperatureValue: `[data-testid="ConditionsSummary"] [data-testid="TemperatureValue"]`,
     humidityValue: `[data-testid="HumiditySection"] [data-testid="PercentageValue"]`,
