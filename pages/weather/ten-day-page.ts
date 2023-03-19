@@ -1,5 +1,6 @@
 import { Page } from '@playwright/test';
 import { MainPage } from '../weather/main-page';
+import { writeJsonFIle } from '../../helper/write-json';
 
 export class TenDayPage extends MainPage {
   constructor(page: Page) {
@@ -90,15 +91,31 @@ export class TenDayPage extends MainPage {
 
   // For the demo purpose just retrieve Temperature and Humidity
   async retrieveWeatherInfo(numberOfDates: number) {
+    let jsonArray = [{}];
     for (let i = 1; i <= numberOfDates; i++) {
       await this.expandDateRow(i);
-      console.log(await this.retrieveDayTitle(i));
-      console.log(await this.retrieveDayTemperature(i));
-      console.log(await this.retrieveDayHumidity(i));
-      console.log(await this.retrieveNightTitle(i));
-      console.log(await this.retrieveNightTemperature(i));
-      console.log(await this.retrieveNightHumidity(i));
+      // Retrieve Temperature and Humidity
+      const dayTitle = (await this.retrieveDayTitle(i)).replace(' | Day', '');
+      const dayTemperature = await this.retrieveDayTemperature(i);
+      const dayHumidity = await this.retrieveDayHumidity(i);
+      const nightTemperature = await this.retrieveNightTemperature(i);
+      const nightHumidity = await this.retrieveNightHumidity(i);
+      // Define json object
+      const jsonObject = {
+        date: dayTitle,
+        day: {
+          temperature: dayTemperature,
+          humidity: dayHumidity,
+        },
+        night: {
+          temperature: nightTemperature,
+          humidity: nightHumidity,
+        }
+      };
+      jsonArray.push(jsonObject); // Append value to array
     }
+    jsonArray.shift(); // Remove unnecessary item from original array
+    await writeJsonFIle(jsonArray, './output.json');
   }
 
   /*==================Verification==============*/
