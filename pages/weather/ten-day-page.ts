@@ -103,7 +103,7 @@ export class TenDayPage extends MainPage {
     for (let i = 1; i <= numberOfDates; i++) {
       await this.expandDateRow(i);
       // Retrieve Temperature and Humidity
-      const dayTitle = (await this.retrieveDayTitle(i)).replace(' | Day', '');
+      const dayTitle = (await this.retrieveDayTitle(i)).split('|')[0].trim();
       const dayTemperature = await this.retrieveDayTemperature(i);
       const dayHumidity = await this.retrieveDayHumidity(i);
       const nightTemperature = await this.retrieveNightTemperature(i);
