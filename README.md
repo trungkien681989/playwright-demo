@@ -2,11 +2,12 @@
 
 Automation Framework for automating end-to-end tests based on Playwright. It provides features as below:
 
-    1. Page object model
-    2. HTML report, Allure Report
-    3. Multiple browser: "chromium", "webkit", or "firefox"
-    4. Paralell execute test
-    5. Multiple test Enviroment
+1. [Page Object Model](https://playwright.dev/docs/pom)
+2. [Support multiple browser](https://playwright.dev/docs/why-playwright#support-for-all-browsers)
+3. [Paralell execute tests](https://playwright.dev/docs/test-parallel)
+4. [HTML Report](https://playwright.dev/docs/test-reporters#html-reporter)
+5. [Allure Report](https://www.npmjs.com/package/allure-playwright)
+6. Support test on multiple enviroments (test, uat, prod, etc.)
 
 ## Installation
 
@@ -20,14 +21,14 @@ The following software are required:
 
 ## Setup
 
-1. To set up this project on your local machine, clone it from the GitHub repository
+1. To set up this project on your local machine, clone it from the GitHub repository.
 2. From the command line in the project's root directory to install all dependencies by run:
 
    ```bash
    npm install
    ```
 
-3. Next run the following command to download Playwright bundled browsers:
+3. Next run the following command to download Playwright supported browsers:
 
    ```bash
    npx playwright install --with-deps
@@ -39,22 +40,20 @@ The following software are required:
    npm install -g cross-env
    ```
 
-## Tests Run config
-
-In the file `./playwright.config.ts`, you can configure the following options:
-
-- fullyParallel: Configures whether tests should be run in parallel mode - `"fullyParallel: true"`.
-  For more information, see the Playwright documentation [here](https://playwright.dev/docs/api/class-testproject#test-project-fully-parallel):
-- headless: Configures whether tests should be run in headless mode - `"headless": true`.
-
 ## Running Tests
 
 From the command line in the project's root directory:
 
-- Running the tests on PROD environment:
+- Running the tests on PROD environment. By default tests will run without UI (headless mode):
 
 ```bash
    npm run test:prod
+```
+
+- You can also run the tests on PROD environment with UI (headed mode):
+
+```bash
+   npm run test:prod-headed
 ```
 
 ## Tests Report
