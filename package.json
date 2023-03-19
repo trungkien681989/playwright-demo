@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "allure": "allure generate ./testOutput/allure-results --clean -o ./testOutput/allure-report && allure open ./testOutput/allure-report",
-    "test:prod": "cross-env test_env=prod npx playwright test --grep @smoke --headed"
+    "test:prod": "cross-env test_env=prod npx playwright test --grep @smoke"
   },
   "keywords": [],
   "author": "",

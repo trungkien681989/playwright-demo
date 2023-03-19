@@ -18,7 +18,7 @@ export class MainPage extends BasePage {
   async goToTab(name: string) {
     await this.waitAndClick(this.headerElements.tab(name));
     await Promise.all([
-      this.waitForResponseSuccess("CreativeDisplayer"),
+      this.waitForResponseSuccess("VideoBidRequestHandlerServlet"),
     ]);
   }
 
