@@ -1,9 +1,9 @@
 import fs from 'fs';
 
-export async function writeJsonFIle(jSonObject: object, outputFile: string) {
-    const jSonString = JSON.stringify(jSonObject);
-    console.log(jSonString);
-    fs.writeFile(outputFile, jSonString, err => {
+export async function writeJsonFIle(jsonObject: object, outputFile: string) {
+    const jsonString = JSON.stringify(jsonObject);
+    console.log(jsonString);
+    fs.writeFile(outputFile, jsonString, err => {
         if (err) {
             console.log(err);
         }
