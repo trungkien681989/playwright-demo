@@ -90,7 +90,7 @@ export class TenDayPage extends MainPage {
   }
 
   // For the demo purpose just retrieve Temperature and Humidity
-  async retrieveWeatherInfo(numberOfDates: number) {
+  async retrieveWeatherInfo(numberOfDates: number, outputFile: string) {
     // Maxinum number of dates show on UI is 15
     if (numberOfDates > 15) {
       numberOfDates = 15;
@@ -123,7 +123,7 @@ export class TenDayPage extends MainPage {
       jsonArray.push(jsonObject); // Append value to array
     }
     jsonArray.shift(); // Remove unnecessary item from original array
-    await writeJsonFIle(jsonArray, './output.json');
+    await writeJsonFIle(jsonArray, outputFile);
   }
 
   /*==================Verification==============*/

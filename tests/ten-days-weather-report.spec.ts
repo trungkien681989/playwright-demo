@@ -15,7 +15,7 @@ Localize.array.forEach(data => {
         });
 
         await test.step('Retrieve Temperature and Humidity of the first 10 days', async () => {
-            await tenDayPage.retrieveWeatherInfo(10);
+            await tenDayPage.retrieveWeatherInfo(10, data.output);
         });
     });
 })
