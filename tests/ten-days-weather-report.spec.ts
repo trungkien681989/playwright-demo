@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import ENV from '../helper/env-config';
 import { TenDayPage } from '../pages/weather/ten-day-page';
 
