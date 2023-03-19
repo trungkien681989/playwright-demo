@@ -90,9 +90,9 @@ All output file and report is stored in `./testOutput` folder. You can view both
 
 The tests can be triggered on the cloud using Github Action. Below is an example of a run:
 
-https://github.com/trungkien681989/playwright-demo/actions/runs/4459482123/jobs/7831963697
+https://github.com/trungkien681989/playwright-demo/actions/runs/4461262788/jobs/7834966541
 
-<img width="1433" alt="image" src="https://user-images.githubusercontent.com/49904115/226160065-54eb5a40-c6fd-4e2e-8478-244dfe988ab3.png">
+![image](https://user-images.githubusercontent.com/49904115/226184232-7eb11123-75af-4854-8f8b-66861607d2fa.png)
 
 ## Reference
 
