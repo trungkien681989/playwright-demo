@@ -129,8 +129,8 @@ export class BasePage {
     expect(value).toContain(text);
   }
 
-  async verifyElementVisible(locator: string, timeout?: number) {
-    const element = this.page.locator(locator).first();
+  async verifyElementVisible(locator: string, index: number = 0, timeout?: number) {
+    const element = this.page.locator(locator).nth(index);
     if (timeout) {
       await expect(element).toBeVisible({ timeout: timeout });
     } else {
@@ -138,8 +138,8 @@ export class BasePage {
     }
   }
 
-  async verifyElementNotVisible(locator: string, timeout?: number) {
-    const element = this.page.locator(locator).first();
+  async verifyElementNotVisible(locator: string, index: number = 0, timeout?: number) {
+    const element = this.page.locator(locator).nth(index);
     if (timeout) {
       await expect(element).not.toBeVisible({ timeout: timeout });
     } else {
