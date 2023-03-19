@@ -32,7 +32,14 @@ const config = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ["html", { open: "never", outputFolder: "./test-output/html" }],
+    ["line"],
+    [
+      "allure-playwright",
+      { detail: true, outputFolder: "./test-output/allure-results" },
+    ],
+  ],
   /* Register global setup script in the Playwright configuration file */
   globalSetup: require.resolve('./helper/global-setup.ts'),
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
