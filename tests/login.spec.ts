@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
 import ENV from '../helper/env-config';
-import { LoginPage } from '../pages/weather/login-page';
+import { LoginPage } from '../pages/login/login-page';
 import { ValidLoginData } from '../test-data/login-data';
-import { WelcomePage } from '../pages/weather/welcome-page';
+import { WelcomePage } from '../pages/welcome/welcome-page';
 
 ValidLoginData.array.forEach(data => {
     test(`Login with valid email ${data.email} and valid password ${data.password} @smoke`, async ({ browser }) => {
