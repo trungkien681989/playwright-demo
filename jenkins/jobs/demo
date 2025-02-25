@@ -1,0 +1,54 @@
+def reportName = '';
+def isTriggeredByTimer = !currentBuild.getBuildCauses('hudson.triggers.TimerTrigger$TimerTriggerCause').isEmpty()
+pipeline {
+
+  agent any
+
+  triggers {
+        cron('H(0-10) 12 * * 0,2,4')
+  }
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '3'))
+  }
+
+  stages {
+    stage('Checkout source code') {
+      steps {
+        git(url: 'https://github.com/trungkien681989/playwright-demo', 
+        branch: 'master', 
+        credentialsId: 'kienToken')
+      }
+    }
+
+    stage('Installing Packages') {
+      steps {
+        sh 'npm install'
+        sh 'npx playwright install --with-deps'
+        sh 'npm install -g cross-env'
+      }
+    }
+
+    stage("Running automation test") {
+      steps {
+        script{
+          sh "npm run test:prod"
+        }
+      }
+    }
+
+    stage('Generate Allure Report') {
+      steps {
+        script{
+          sh "npm run allure"
+        }
+      }
+    }
+
+  }
+
+  post{
+    always{
+      cleanWs()
+    }
+  }
+}
