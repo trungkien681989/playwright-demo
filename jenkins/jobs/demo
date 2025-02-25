@@ -31,7 +31,7 @@ pipeline {
     stage("Running automation test") {
       steps {
         script{
-          sh "npm run test:prod"
+          sh "npm run test:smoke"
         }
       }
     }
