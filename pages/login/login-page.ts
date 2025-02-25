@@ -11,7 +11,7 @@ export class LoginPage extends BasePage {
   readonly loginElements = {
     emailTextbox: `input[name="email"]`,
     passwordTextbox: `input[name="password"]`,
-    signInButton: `button>>text=Sign in`,
+    signInButton: `(//*[@id="remember-me"]/following::button)[1]`,
   }
 
   /* ============ Methods =============== */
