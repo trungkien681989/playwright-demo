@@ -17,7 +17,7 @@ test(`Test successful registration with valid data @smoke @regression`, async ({
     });
 
     await test.step('Signup with mock response', async () => {
-        await signUpPage.signUpMock(signupData.fullName, signupData.email, signupData.password);
+        await signUpPage.signUpMock(signupData.fullName, signupData.email, signupData.password, 200, signupData.mockResponse);
         await loginPage.verifyLoginPageShow();
     });
 
