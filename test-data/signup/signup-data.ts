@@ -2,7 +2,7 @@ const SignUpDataTest = {
     "fullName": "John Doe",
     "email": "test123@gmail.com",
     "password": "P@$$word123",
-    "mockResponse": {
+    "mockResponseSuccess": {
         id: '67bd9c412e805dc73034cc11',
         email: 'test123@gmail.com',
         created_at: 1740479553,
@@ -26,6 +26,9 @@ const SignUpDataTest = {
         onboarding_first_lesson_completed: false,
         onboarding_user_completed: false,
         organization: []
+    },
+    "mockResponseEmailAlreadyRegistered": {
+        detail: 'Email trungkien681989@gmail.com is already registered. Please click log in with email or use a different account'
     }
 }
 
@@ -33,7 +36,7 @@ const SignUpDataProd = {
     "fullName": "Kevin Bui",
     "email": "trungkien681989@gmail.com",
     "password": "P@$$word123",
-    "mockResponse": {
+    "mockResponseSuccess": {
         id: '67bd9c412e805dc73034cc16',
         email: 'trungkien681989@gmail.com',
         created_at: 1740479553,
@@ -57,6 +60,9 @@ const SignUpDataProd = {
         onboarding_first_lesson_completed: false,
         onboarding_user_completed: false,
         organization: []
+    },
+    "mockResponseEmailAlreadyRegistered": {
+        detail: 'Email trungkien681989@gmail.com is already registered. Please click log in with email or use a different account'
     }
 }
 
