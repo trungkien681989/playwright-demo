@@ -20,6 +20,11 @@ export class SignUpPage extends BasePage {
     createAccountButton: `//*[@name="password"]/following::button`,
   }
 
+  readonly emailAlreadyRegistered = {
+    message: `[class="login-selection__title"]`,
+    signInButton: `[class="modal__footer"] button`,
+  }
+
   /* ============ Methods =============== */
 
   async signUpReal(fullName: string, email: string, password: string) {
@@ -51,4 +56,9 @@ export class SignUpPage extends BasePage {
   }
 
   /*==================Verification==============*/
+
+  async verifyEmailAlreadyRegistered(message: string) {
+    await this.verifyTextContent(this.emailAlreadyRegistered.message, message);
+    await this.verifyElementVisible(this.emailAlreadyRegistered.signInButton);
+  }
 }
