@@ -7,7 +7,7 @@ import { WelcomePage } from '../../objects/pages/welcome/welcome-page';
 const validLoginData: any = ValidLoginData();
 
 validLoginData.array.forEach(data => {
-    test.only(`Test successful login with valid email ${data.email} @ui @smoke @regression`, async ({ browser }) => {
+    test(`Test successful login with valid email ${data.email} @ui @smoke @regression`, async ({ browser }) => {
         const context = await browser.newContext();
         const page = await context.newPage();
         const loginPage = new LoginPage(page);
