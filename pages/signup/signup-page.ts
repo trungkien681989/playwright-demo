@@ -29,38 +29,14 @@ export class SignUpPage extends BasePage {
     ]);
   }
 
-  async signUpMock(fullName: string, email: string, password: string) {
+  async signUpMock(fullName: string, email: string, password: string, mockResponseStatusCode: number, mockResponseBody: any) {
     // Mock the API endpoint
     await this.page.route('**/register/basic', (route) => {
       // Mock the response
       route.fulfill({
-        status: 200,  // HTTP status code
+        status: mockResponseStatusCode,  // HTTP status code
         contentType: 'application/json',  // Content type
-        body: JSON.stringify({
-          id: '67bd9c412e805dc73034cc16',
-          email: 'trungkien681989@gmail.com',
-          created_at: 1740479553,
-          created_at_utc: '2025-02-25 10:32:33',
-          updated_at: null,
-          updated_at_utc: null,
-          user_id: 'ltIn2MS3QZ-y_TaYQ5-m7TvZMwsyLqXL',
-          external_id: 'FgcNCFEvP1c8PEcKNDgMNiZ4Yzl9AFk4HCVEKB0mL3g=',
-          from_existing_elsa_user: false,
-          first_login: true,
-          fullname: 'Kien Bui',
-          access_token: 'F3S0w0bysBQFdbjtxpFurijM/IAXdR5/rim8XayXw8eiJNKSE6c1b76xZEMhOTpTdm9vn+/ohkXajnE2FEO5/xlDKKbeoFRFKELRcRpm6j06aEyW5pdqUrKMohbfdWkQX4ypVKDvF+fJVinpiZ0D1mY1yKVeY/bzECpOgjzjeNUCJVdst0b6/XKFSWP8yleRgNaNT+KFgANfU2qDCiDgQw==',
-          refresh_token: '98235655',
-          account_type: 'basic',
-          google_calendar_key: null,
-          outlook_calendar_key: null,
-          self_described: null,
-          main_focus: null,
-          first_language_code: null,
-          first_language_name: null,
-          onboarding_first_lesson_completed: false,
-          onboarding_user_completed: false,
-          organization: []
-        })
+        body: JSON.stringify({ mockResponseBody })
       });
     });
     await this.signUp(fullName, email, password);
