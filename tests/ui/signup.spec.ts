@@ -2,8 +2,8 @@ import { test } from '@playwright/test';
 import ENV from '../../helper/env-config';
 import { SignUpData } from '../../test-data/signup/signup-data';
 import { SignupMessageData } from '../../test-data/signup/signup-message-data';
-import { SignUpPage } from '../../pages/signup/signup-page';
-import { LoginPage } from '../../pages/login/login-page';
+import { SignUpPage } from '../../objects/pages/signup/signup-page';
+import { LoginPage } from '../../objects/pages/login/login-page';
 
 const signupData: any = SignUpData();
 const signupMessageData: any = SignupMessageData();

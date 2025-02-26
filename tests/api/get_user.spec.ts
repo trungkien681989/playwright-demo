@@ -1,9 +1,9 @@
 import { APIRequestContext, expect, request, test } from '@playwright/test';
 import ENV from '../../helper/env-config';
 import { ValidLoginData } from '../../test-data/login/valid-login-data';
-import { LoginPage } from '../../pages/login/login-page';
-import { WelcomePage } from '../../pages/welcome/welcome-page';
-import { UserMeApi } from '../../apis/user-me-api';
+import { LoginPage } from '../../objects/pages/login/login-page';
+import { WelcomePage } from '../../objects/pages/welcome/welcome-page';
+import { UserMeApi } from '../../objects/apis/user-me-api';
 import { UserData } from '../../test-data/user/user-data';
 
 const validLoginData: any = ValidLoginData();
