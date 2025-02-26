@@ -7,7 +7,8 @@
     "allure": "allure generate ./test-output/allure-results --clean -o ./test-output/allure-report && allure open ./test-output/allure-report",
     "test:headed": "cross-env test_env=prod npx playwright test --grep-invert @wip --headed",
     "test:smoke": "cross-env test_env=prod npx playwright test --grep @smoke --grep-invert @wip",
-    "test:regression": "cross-env test_env=prod npx playwright test --grep @regression --grep-invert @wip"
+    "test:regression": "cross-env test_env=prod npx playwright test --grep @regression --grep-invert @wip",
+    "test:performance": "k6 run --vus 2 --duration 5s tests/performance/k6_get_user_api_test.js"
   },
   "keywords": [],
   "author": "",
