@@ -16,7 +16,7 @@ test(`Test successful registration with valid data @smoke @regression`, async ({
         await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
     });
 
-    await test.step('Login with valid credential', async () => {
+    await test.step('Signup with mock response', async () => {
         await signUpPage.signUpMock(signupData.fullName, signupData.email, signupData.password);
         await loginPage.verifyLoginPageShow();
     });
