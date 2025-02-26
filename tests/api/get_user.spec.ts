@@ -5,6 +5,7 @@ import { LoginPage } from '../../objects/pages/login/login-page';
 import { WelcomePage } from '../../objects/pages/welcome/welcome-page';
 import { UserMeApi } from '../../objects/apis/user-me-api';
 import { UserData } from '../../test-data/user/user-data';
+import fs from 'fs';
 
 const validLoginData: any = ValidLoginData();
 const userData: any = UserData();
@@ -33,6 +34,10 @@ test.beforeAll(async ({ browser }) => {
         await welcomePage.verifyGetStartedButtonShow();
 
         token = await JSON.parse(JSON.stringify(apiResponse)).access_token
+        const textData = {
+            access_token: token,
+        };
+        fs.writeFileSync(`./test-data/login/token.json`, JSON.stringify(textData, null, 2));
     });
 
     await context.close();
