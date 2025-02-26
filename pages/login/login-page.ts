@@ -26,4 +26,10 @@ export class LoginPage extends BasePage {
   }
 
   /*==================Verification==============*/
+
+  async verifyLoginPageShow() {
+    await this.verifyElementVisible(this.loginElements.emailTextbox);
+    await this.verifyElementVisible(this.loginElements.passwordTextbox);
+    await this.verifyElementVisible(this.loginElements.signInButton);
+  }
 }
