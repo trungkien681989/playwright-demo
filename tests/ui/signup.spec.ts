@@ -1,14 +1,14 @@
 import { test } from '@playwright/test';
-import ENV from '../helper/env-config';
-import { SignUpData } from '../test-data/signup/signup-data';
-import { SignupMessageData } from '../test-data/signup/signup-message-data';
-import { SignUpPage } from '../pages/signup/signup-page';
-import { LoginPage } from '../pages/login/login-page';
+import ENV from '../../helper/env-config';
+import { SignUpData } from '../../test-data/signup/signup-data';
+import { SignupMessageData } from '../../test-data/signup/signup-message-data';
+import { SignUpPage } from '../../pages/signup/signup-page';
+import { LoginPage } from '../../pages/login/login-page';
 
 const signupData: any = SignUpData();
 const signupMessageData: any = SignupMessageData();
 
-test(`Test successful registration with valid data using mock response @smoke @regression`, async ({ browser }) => {
+test(`Test successful registration with valid data using mock response @ui @smoke @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
@@ -26,7 +26,7 @@ test(`Test successful registration with valid data using mock response @smoke @r
     await context.close();
 });
 
-test(`Test Email already registered using mock response @smoke @regression`, async ({ browser }) => {
+test(`Test Email already registered using mock response @ui @smoke @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
@@ -43,7 +43,7 @@ test(`Test Email already registered using mock response @smoke @regression`, asy
     await context.close();
 });
 
-test(`Test Email already registered using real response @smoke @regression`, async ({ browser }) => {
+test(`Test Email already registered using real response @ui @smoke @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
