@@ -14,7 +14,7 @@ export class LoginPage extends BasePage {
     signInButton: `(//*[@id="remember-me"]/following::button)[1]`,
     emailAlert: `(//input[@name="email"]/following::*[@role="alert"])`,
     passwordAlert: `(//input[@name="password"]/following::*[@role="alert"])`,
-    correctCredentialAlert: `//input[@name="email"]/preceding::*[@class="alert-error__text"]`,
+    incorrectCredentialAlert: `//input[@name="email"]/preceding::*[@class="alert-error__text"]`,
   }
 
   /* ============ Methods =============== */
@@ -35,8 +35,8 @@ export class LoginPage extends BasePage {
     await this.verifyTextContent(this.loginElements.passwordAlert, message);
   }
 
-  async verifyCorrectCredentialAlert(message: string) {
-    await this.verifyTextContent(this.loginElements.correctCredentialAlert, message);
+  async verifyIncorrectCredentialAlert(message: string) {
+    await this.verifyTextContent(this.loginElements.incorrectCredentialAlert, message);
   }
 
   async verifyLoginPageShow() {
