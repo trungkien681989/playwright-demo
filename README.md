@@ -135,9 +135,9 @@ All output file and report is stored in `./testOutput` folder. You can view both
     npm run allure
 ```
 
-![image](https://user-images.githubusercontent.com/49904115/226183572-378e5947-48ae-4a7c-8c0b-1099aa595c9b.png)
+![Image](https://github.com/user-attachments/assets/beddda89-de47-4269-95f1-6aff4dd78b47)
 
-![image](https://user-images.githubusercontent.com/49904115/226183625-5d952da2-31b7-4ac8-8fa4-1077bf184a08.png)
+![Image](https://github.com/user-attachments/assets/f81319c4-e0fa-4be3-a135-c7a1a2c9bbaf)
 
 - Show HTML test report:
 
@@ -145,9 +145,7 @@ All output file and report is stored in `./testOutput` folder. You can view both
    npx playwright show-report test-output/html
 ```
 
-![image](https://user-images.githubusercontent.com/49904115/226183172-4291f595-e606-4983-8599-aa121aa2c774.png)
-
-![image](https://user-images.githubusercontent.com/49904115/226183242-287fd003-5149-41f3-b51f-5ac3463eb75d.png)
+![Image](https://github.com/user-attachments/assets/77521ec3-6b64-412c-b49a-cbe195cabe01)
 
 ## Github Action
 
@@ -155,11 +153,11 @@ The tests can be triggered on the cloud using Github Action. Below is an example
 
 <https://github.com/trungkien681989/playwright-demo/actions/runs/4461520231>
 
-![image](https://user-images.githubusercontent.com/49904115/226184232-7eb11123-75af-4854-8f8b-66861607d2fa.png)
+![Image](https://github.com/user-attachments/assets/25db0a6f-26ab-4989-a8c9-5c1265968b6b)
 
 Playwright HTML test report can be downloaded from the Artifacts:
 
-![image](https://user-images.githubusercontent.com/49904115/226188621-5dbb8b25-b2d4-47aa-8a23-1165785888d2.png)
+![Image](https://github.com/user-attachments/assets/321f741c-4201-417c-9c1a-633d35aa18c2)
 
 ## Reference
 
