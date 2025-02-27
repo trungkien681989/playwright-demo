@@ -7,8 +7,8 @@ Automation Framework for automating end-to-end tests based on Playwright. It pro
 3. [Paralell execute tests](https://playwright.dev/docs/test-parallel)
 4. [HTML Report](https://playwright.dev/docs/test-reporters#html-reporter)
 5. [Allure Report](https://www.npmjs.com/package/allure-playwright)
-6. Support test on multiple enviroments (test, uat, prod, etc.)
-7. Integrate with CI/CD using Github Action
+6. Support test on multiple environments (test, prod, etc.)
+7. Integrate with CI/CD using Github Action (Can run with your Github account) or Jenkins (Need Jenkins server setup)
 
 ## Installation
 
@@ -45,22 +45,29 @@ The following software are required:
 
 From the command line in the project's root directory:
 
-- Running the tests on PROD environment. By default tests will run without UI (headless mode):
+- Running the smoke tests on PROD environment. By default tests will run without UI (headless mode):
 
 ```bash
-   npm run test:prod
+   npm run test:smoke
 ```
 
-- You can also run the tests on PROD environment with UI (headed mode):
+- Running the regression tests on PROD environment. By default tests will run without UI (headless mode):
 
 ```bash
-   npm run test:prod-headed
+   npm run test:regression
 ```
 
-## Tests Output
+- You can also run all test cases on PROD environment with UI (headed mode):
 
-- After the test finish. An output JSON file named `output.json` will be generated in the root directory. It contains weather info (Temperature, Humidity) of Singapore for Day and Night in next 10 days.
-- The weather info output will also be available in console and in Allure, HTML reports.
+```bash
+   npm run test:headed
+```
+
+- You can run performance test with K6:
+
+```bash
+   npm run test:performance
+```
 
 ## Tests Report
 
