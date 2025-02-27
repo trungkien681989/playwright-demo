@@ -1,21 +1,19 @@
 ## Getting Started
 
-Automation Framework for automating end-to-end tests based on Playwright. It provides features as below:
+Automation Framework for automating end-to-end tests based on Playwright and K6. It provides features as below:
 
 1. [API Testing with Playwright](https://playwright.dev/docs/api-testing)
 2. [Performance Testing with K6](https://grafana.com/docs/k6/latest/)
-3. [Web UI Testing using Page Object Model](https://playwright.dev/docs/pom)
-4. [Support multiple browser](https://playwright.dev/docs/why-playwright#support-for-all-browsers)
-5. [Parallel execute tests](https://playwright.dev/docs/test-parallel)
-6. [HTML Report](https://playwright.dev/docs/test-reporters#html-reporter)
-7. [Allure Report](https://www.npmjs.com/package/allure-playwright)
+3. [Support multiple browser](https://playwright.dev/docs/why-playwright#support-for-all-browsers)
+4. [Parallel execute tests](https://playwright.dev/docs/test-parallel)
+5. [HTML Report](https://playwright.dev/docs/test-reporters#html-reporter)
+6. [Allure Report](https://www.npmjs.com/package/allure-playwright)
+7. Modularity for easy maintenance with [Page Object Model](https://playwright.dev/docs/pom)
 8. Support test on multiple environments (test, prod, etc.)
 9. Running smoke, regression, sanity, etc. test base on [Tags](https://playwright.dev/docs/test-annotations#tag-tests)
-10. Integrate with CI/CD using Github Action (Can run with your Github account) or Jenkins (Need Jenkins server setup)
+10. Integrate with CI/CD using [Github Action](https://github.com/features/actions) (Can run with your Github account) or [Jenkins](https://www.jenkins.io/) (Need Jenkins server setup)
 
 ## Framework Structure
-
-This project follows [playwright pom](https://playwright.dev/docs/pom). Besides, some key utility files and directories are explained as below:
 
 ```
 ├── AutomationProcessInScrumTeam.pptx
