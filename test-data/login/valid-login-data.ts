@@ -18,9 +18,13 @@ const ValidLoginDataProd = {
             "password": "P@$$word123",
         },
         {
-            "email": "nguyenthihongnhung20101989@gmail.com",
-            "password": "P@$$word456",
-        }
+            "email": "trungkien+681989@gmail.com",
+            "password": "P@$$word123",
+        },
+        {
+            "email": "trungkien681989maxlengthpassword@gmail.com",
+            "password": "P@$$word123401234567890123456789",
+        },
     ]
 }
 
