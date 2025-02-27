@@ -19,7 +19,43 @@ test(`Test successful registration with valid data using mock response @ui @smok
     });
 
     await test.step('Signup successfully using mock response', async () => {
-        await signUpPage.signUpMock(signupData.fullName, signupData.email, signupData.password, 200, signupData.mockResponseSuccess);
+        await signUpPage.signUpMock(signupData.mockResponseSuccess.fullname, signupData.mockResponseSuccess.email, signupData.password, 200, signupData.mockResponseSuccess);
+        await loginPage.verifyLoginPageShow();
+    });
+
+    await context.close();
+});
+
+test(`Test successful registration with password maximum length using mock response @ui @regression`, async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const signUpPage = new SignUpPage(page);
+    const loginPage = new LoginPage(page);
+
+    await test.step('Open Sign Up Page', async () => {
+        await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
+    });
+
+    await test.step('Signup successfully using mock response', async () => {
+        await signUpPage.signUpMock(signupData.mockResponseSuccess.fullname, signupData.mockResponseSuccess.email, signupData.passwordMaximumLength, 200, signupData.mockResponseSuccess);
+        await loginPage.verifyLoginPageShow();
+    });
+
+    await context.close();
+});
+
+test(`Test successful registration with email has special characters using mock response @ui @regression`, async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const signUpPage = new SignUpPage(page);
+    const loginPage = new LoginPage(page);
+
+    await test.step('Open Sign Up Page', async () => {
+        await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
+    });
+
+    await test.step('Signup successfully using mock response', async () => {
+        await signUpPage.signUpMock(signupData.mockResponseSpecialChars.fullname, signupData.mockResponseSpecialChars.email, signupData.password, 200, signupData.mockResponseSpecialChars);
         await loginPage.verifyLoginPageShow();
     });
 
