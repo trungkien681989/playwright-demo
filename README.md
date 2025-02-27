@@ -2,13 +2,15 @@
 
 Automation Framework for automating end-to-end tests based on Playwright. It provides features as below:
 
-1. [Page Object Model](https://playwright.dev/docs/pom)
-2. [Support multiple browser](https://playwright.dev/docs/why-playwright#support-for-all-browsers)
-3. [Parallel execute tests](https://playwright.dev/docs/test-parallel)
-4. [HTML Report](https://playwright.dev/docs/test-reporters#html-reporter)
-5. [Allure Report](https://www.npmjs.com/package/allure-playwright)
-6. Support test on multiple environments (test, prod, etc.)
-7. Integrate with CI/CD using Github Action (Can run with your Github account) or Jenkins (Need Jenkins server setup)
+1. [API Testing with Playwright](https://playwright.dev/docs/api-testing)
+2. [Performance Testing with K6](https://grafana.com/docs/k6/latest/)
+3. [Web UI Testing using Page Object Model](https://playwright.dev/docs/pom)
+4. [Support multiple browser](https://playwright.dev/docs/why-playwright#support-for-all-browsers)
+5. [Parallel execute tests](https://playwright.dev/docs/test-parallel)
+6. [HTML Report](https://playwright.dev/docs/test-reporters#html-reporter)
+7. [Allure Report](https://www.npmjs.com/package/allure-playwright)
+8. Support test on multiple environments (test, prod, etc.)
+9. Integrate with CI/CD using Github Action (Can run with your Github account) or Jenkins (Need Jenkins server setup)
 
 ## Framework Structure
 
@@ -101,22 +103,16 @@ The following software are required:
 
 From the command line in the project's root directory:
 
-- Running the smoke tests on PROD environment. By default tests will run without UI (headless mode):
+- Running the ui tests on PROD environment. By default tests will run in headless mode:
 
 ```bash
-   npm run test:smoke
+   npm run test:ui
 ```
 
-- Running the regression tests on PROD environment. By default tests will run without UI (headless mode):
+- Running the api tests on PROD environment.
 
 ```bash
-   npm run test:regression
-```
-
-- You can also run all test cases on PROD environment with UI (headed mode):
-
-```bash
-   npm run test:headed
+   npm run test:api
 ```
 
 - You can run performance test with K6:
@@ -127,9 +123,17 @@ From the command line in the project's root directory:
 
 ## Tests Report
 
-All output file and report is stored in `./testOutput` folder. You can view both Allure and HTML report.
+### HTML and Allure report for Playwright test
 
-- Generate Allure report:
+- Show Playwright HTML test report:
+
+```bash
+   npx playwright show-report test-output/html
+```
+
+![Image](https://github.com/user-attachments/assets/77521ec3-6b64-412c-b49a-cbe195cabe01)
+
+- Generate Allure report for Playwright test:
 
 ```bash
     npm run allure
@@ -139,15 +143,7 @@ All output file and report is stored in `./testOutput` folder. You can view both
 
 ![Image](https://github.com/user-attachments/assets/f81319c4-e0fa-4be3-a135-c7a1a2c9bbaf)
 
-- Show HTML test report for Playwright automation test:
-
-```bash
-   npx playwright show-report test-output/html
-```
-
-![Image](https://github.com/user-attachments/assets/77521ec3-6b64-412c-b49a-cbe195cabe01)
-
-- Show HTML test report for K6 performance test:
+### Show HTML test report for K6 performance test
 
 ```bash
    open ./summary.html
@@ -169,7 +165,7 @@ Playwright HTML test report can be downloaded from the Artifacts:
 
 ## Reference
 
-- To show all Playwrigt option commnad :
+- To show all Playwright option command :
 
 ```bash
    npx playwright --help
