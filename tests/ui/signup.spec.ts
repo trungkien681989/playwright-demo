@@ -89,7 +89,7 @@ test(`Signup_15 Test the system when the password does not meet the required for
     });
 
     await test.step('Signup with the password does not meet the required format', async () => {
-        await signUpPage.signUp(signupData.fullName, signupData.email, signupData.passwordNotMeetCriteria);
+        await signUpPage.signUp(signupData.fullName, signupData.emailUnregistered, signupData.passwordNotMeetCriteria);
         await signUpPage.verifyIncorrectCredentialAlert('The email address or password you entered is invalid');
     });
 
