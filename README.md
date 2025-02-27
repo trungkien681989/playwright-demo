@@ -10,6 +10,60 @@ Automation Framework for automating end-to-end tests based on Playwright. It pro
 6. Support test on multiple environments (test, prod, etc.)
 7. Integrate with CI/CD using Github Action (Can run with your Github account) or Jenkins (Need Jenkins server setup)
 
+## Framework Structure
+
+This project follows [playwright pom](https://playwright.dev/docs/pom). Besides, some key utility files and directories are explained as below:
+
+```
+├── AutomationProcessInScrumTeam.pptx
+├── ELSA_Speech_Analyzer_test_cases.xlsx
+├── LICENSE
+├── README.md
+├── environments                        ---> provide test environment parameters
+├── helper                              ---> util functions to make code DRY(er)
+│   ├── env-config.ts
+│   └── global-setup.ts
+├── jenkins                             ---> CI/CD using Jenkins
+│   └── jobs
+│       └── demo
+├── .github                             ---> CI/CD using Github Actions
+│   └── workflows
+│       └── playwright.yml
+├── objects
+│   ├── apis                            ---> store API object classes
+│   │   └── user-me-api.ts
+│   └── pages                           ---> store POM classes
+│       ├── base
+│       │   └── base-page.ts
+│       ├── login
+│       │   └── login-page.ts
+│       ├── signup
+│       │   └── signup-page.ts
+│       └── welcome
+│           └── welcome-page.ts
+├── package-lock.json
+├── package.json
+├── playwright.config.js
+├── summary.html
+├── test-data                           ---> test data loaded base on test environment
+│   ├── login
+│   │   ├── token.json
+│   │   └── valid-login-data.ts
+│   ├── signup
+│   │   ├── signup-data.ts
+│   │   └── signup-message-data.ts
+│   └── user
+│       └── user-data.ts
+└── tests
+    ├── api                             ---> api test using Playwright APIRequestContext
+    │   └── get_user.spec.ts
+    ├── performance                     ---> performance for api using K6
+    │   └── k6_get_user_api_test.js
+    └── ui                              ---> ui test cases using Playwright Browsers
+        ├── login.spec.ts
+        └── signup.spec.ts
+```
+
 ## Installation
 
 The following software are required:
