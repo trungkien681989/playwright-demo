@@ -18,7 +18,7 @@ test(`Signup_01 Test successful registration with valid data @ui @mock @smoke @r
         await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
     });
 
-    await test.step('Signup successfully using mock response', async () => {
+    await test.step('Sign-up successfully using mock response', async () => {
         await signUpPage.signUpMock(signupData.mockResponseSuccess.fullname, signupData.mockResponseSuccess.email, signupData.password, 200, signupData.mockResponseSuccess);
         await loginPage.verifyLoginPageShow();
     });
@@ -26,7 +26,7 @@ test(`Signup_01 Test successful registration with valid data @ui @mock @smoke @r
     await context.close();
 });
 
-test(`Signup_11 Test the sign-up process with an email containing special characters response @ui @mock @regression`, async ({ browser }) => {
+test(`Signup_11 Test the sign-up process with an email containing special characters @ui @mock @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
@@ -36,7 +36,7 @@ test(`Signup_11 Test the sign-up process with an email containing special charac
         await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
     });
 
-    await test.step('Signup successfully using mock response', async () => {
+    await test.step('Sign-up process with an email containing special characters', async () => {
         await signUpPage.signUpMock(signupData.mockResponseSpecialChars.fullname, signupData.mockResponseSpecialChars.email, signupData.password, 200, signupData.mockResponseSpecialChars);
         await loginPage.verifyLoginPageShow();
     });
@@ -44,7 +44,7 @@ test(`Signup_11 Test the sign-up process with an email containing special charac
     await context.close();
 });
 
-test(`Signup_13 Test the sign-up process with the password at the maximum length supported response @ui @mock @regression`, async ({ browser }) => {
+test(`Signup_13 Test the sign-up process with the password at the maximum length supported @ui @mock @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
@@ -54,7 +54,7 @@ test(`Signup_13 Test the sign-up process with the password at the maximum length
         await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
     });
 
-    await test.step('Signup successfully using mock response', async () => {
+    await test.step('Sign-up process with the password at the maximum length supported', async () => {
         await signUpPage.signUpMock(signupData.mockResponseSuccess.fullname, signupData.mockResponseSuccess.email, signupData.passwordMaximumLength, 200, signupData.mockResponseSuccess);
         await loginPage.verifyLoginPageShow();
     });
@@ -105,7 +105,7 @@ test(`Signup_16 Test sign-up with an email that is already in use using mock res
         await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
     });
 
-    await test.step('Signup with Email already registered using mock response', async () => {
+    await test.step('Sign-up with an email that is already in use using mock response', async () => {
         await signUpPage.signUpMock(signupData.fullName, signupData.email, signupData.password, 409, signupData.mockResponseEmailAlreadyRegistered);
         await signUpPage.verifyEmailAlreadyRegistered(signupMessageData.emailAlreadyRegisteredMessage);
     });
@@ -122,7 +122,7 @@ test(`Signup_16 Test sign-up with an email that is already in use @ui @regressio
         await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
     });
 
-    await test.step('Signup with Email already registered using mock response', async () => {
+    await test.step('Sign-up with an email that is already in use using real data', async () => {
         await signUpPage.signUp(signupData.fullName, signupData.email, signupData.password);
         await signUpPage.verifyEmailAlreadyRegistered(signupMessageData.emailAlreadyRegisteredMessage);
     });
