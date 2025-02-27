@@ -62,7 +62,7 @@ test(`Test successful registration with email has special characters using mock 
     await context.close();
 });
 
-test(`Test Email already registered using mock response @ui @regression`, async ({ browser }) => {
+test(`Test email already registered using mock response @ui @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
@@ -79,7 +79,7 @@ test(`Test Email already registered using mock response @ui @regression`, async 
     await context.close();
 });
 
-test(`Test Email already registered using real response @ui @regression`, async ({ browser }) => {
+test(`Test email already registered using real response @ui @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
@@ -91,6 +91,40 @@ test(`Test Email already registered using real response @ui @regression`, async 
     await test.step('Signup with Email already registered using mock response', async () => {
         await signUpPage.signUp(signupData.fullName, signupData.email, signupData.password);
         await signUpPage.verifyEmailAlreadyRegistered(signupMessageData.emailAlreadyRegisteredMessage);
+    });
+
+    await context.close();
+});
+
+test(`Test the system's behavior when the email format is invalid @ui @regression`, async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const signUpPage = new SignUpPage(page);
+
+    await test.step('Open Sign Up Page', async () => {
+        await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
+    });
+
+    await test.step('Signup with the email format is invalid', async () => {
+        await signUpPage.signUp(signupData.fullName, signupData.emailInvalidFormat, signupData.password);
+        await signUpPage.verifyEmailAlert('Email is invalid');
+    });
+
+    await context.close();
+});
+
+test(`Test the system when the password does not meet the required format @ui @regression`, async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const signUpPage = new SignUpPage(page);
+
+    await test.step('Open Sign Up Page', async () => {
+        await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
+    });
+
+    await test.step('Signup with the password does not meet the required format', async () => {
+        await signUpPage.signUp(signupData.fullName, signupData.email, signupData.passwordNotMeetCriteria);
+        await signUpPage.verifyIncorrectCredentialAlert('The email address or password you entered is invalid');
     });
 
     await context.close();
