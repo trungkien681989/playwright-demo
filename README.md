@@ -154,7 +154,7 @@ From the command line in the project's root directory:
 
 The tests can be triggered on the cloud using Github Action. Below is an example of a run:
 
-<https://github.com/trungkien681989/playwright-demo/actions/runs/13568269574>
+<https://github.com/trungkien681989/playwright-demo/actions/runs/13569818157>
 
 ![Image](https://github.com/user-attachments/assets/25db0a6f-26ab-4989-a8c9-5c1265968b6b)
 
