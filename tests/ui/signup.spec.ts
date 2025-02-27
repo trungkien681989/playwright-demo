@@ -62,7 +62,7 @@ test(`Test successful registration with email has special characters using mock 
     await context.close();
 });
 
-test(`Test Email already registered using mock response @ui @smoke @regression`, async ({ browser }) => {
+test(`Test Email already registered using mock response @ui @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
@@ -79,7 +79,7 @@ test(`Test Email already registered using mock response @ui @smoke @regression`,
     await context.close();
 });
 
-test(`Test Email already registered using real response @ui @smoke @regression`, async ({ browser }) => {
+test(`Test Email already registered using real response @ui @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
