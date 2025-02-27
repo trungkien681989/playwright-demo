@@ -4,7 +4,7 @@ Automation Framework for automating end-to-end tests based on Playwright. It pro
 
 1. [Page Object Model](https://playwright.dev/docs/pom)
 2. [Support multiple browser](https://playwright.dev/docs/why-playwright#support-for-all-browsers)
-3. [Paralell execute tests](https://playwright.dev/docs/test-parallel)
+3. [Parallel execute tests](https://playwright.dev/docs/test-parallel)
 4. [HTML Report](https://playwright.dev/docs/test-reporters#html-reporter)
 5. [Allure Report](https://www.npmjs.com/package/allure-playwright)
 6. Support test on multiple environments (test, prod, etc.)
@@ -15,9 +15,11 @@ Automation Framework for automating end-to-end tests based on Playwright. It pro
 The following software are required:
 
 - Nodejs : Download and Install Node JS from
+
   ```sh
   https://nodejs.org/en/download/
   ```
+
 - Install Java 8 or above, Allure Reports require Java 8 or higher.
 
 ## Setup
@@ -35,7 +37,7 @@ The following software are required:
    npx playwright install --with-deps
    ```
 
-4. Finnaly run the following command to install cross environment:
+4. Finally run the following command to install cross environment:
 
    ```bash
    npm install -g cross-env
@@ -97,7 +99,7 @@ All output file and report is stored in `./testOutput` folder. You can view both
 
 The tests can be triggered on the cloud using Github Action. Below is an example of a run:
 
-https://github.com/trungkien681989/playwright-demo/actions/runs/4461520231
+<https://github.com/trungkien681989/playwright-demo/actions/runs/4461520231>
 
 ![image](https://user-images.githubusercontent.com/49904115/226184232-7eb11123-75af-4854-8f8b-66861607d2fa.png)
 
