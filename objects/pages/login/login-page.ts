@@ -20,9 +20,6 @@ export class LoginPage extends BasePage {
     await this.waitAndFill(this.loginElements.emailTextbox, email);
     await this.waitAndFill(this.loginElements.passwordTextbox, password);
     await this.waitAndClick(this.loginElements.signInButton);
-    await Promise.all([
-      this.waitForResponseSuccess("/login/basic"),
-    ]);
   }
 
   /*==================Verification==============*/
