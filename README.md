@@ -147,6 +147,14 @@ All output file and report is stored in `./testOutput` folder. You can view both
 
 ![Image](https://github.com/user-attachments/assets/77521ec3-6b64-412c-b49a-cbe195cabe01)
 
+- Show HTML test report for K6 performance test:
+
+```bash
+   open ./summary.html
+```
+
+![Image](https://github.com/user-attachments/assets/1d2a3614-9bf5-40cb-a342-c4261e72280d)
+
 ## Github Action
 
 The tests can be triggered on the cloud using Github Action. Below is an example of a run:
