@@ -55,17 +55,17 @@ test(`Test login with wrong input @ui @regression`, async ({ browser }) => {
 
     await test.step('Test login with wrong email and correct password', async () => {
         await loginPage.login(invalidLoginData.wrongEmail, validLoginData.array[0].password);
-        await loginPage.verifyCorrectCredentialAlert(invalidCredential);
+        await loginPage.verifyIncorrectCredentialAlert(invalidCredential);
     });
 
     await test.step('Test login with correct email and wrong password', async () => {
         await loginPage.login(validLoginData.array[0].email, invalidLoginData.wrongPassword);
-        await loginPage.verifyCorrectCredentialAlert(invalidCredential);
+        await loginPage.verifyIncorrectCredentialAlert(invalidCredential);
     });
 
     await test.step('Test login with wrong email and wrong password', async () => {
         await loginPage.login(invalidLoginData.wrongEmail, invalidLoginData.wrongPassword);
-        await loginPage.verifyCorrectCredentialAlert(invalidCredential);
+        await loginPage.verifyIncorrectCredentialAlert(invalidCredential);
     });
 
     await context.close();
