@@ -18,9 +18,12 @@ export class SignUpPage extends BasePage {
     emailTextbox: `input[name="email"]`,
     passwordTextbox: `input[name="password"]`,
     createAccountButton: `//*[@name="password"]/following::button`,
+    emailAlert: `(//input[@name="email"]/following::*[@role="alert"])`,
+    passwordAlert: `(//input[@name="password"]/following::*[@role="alert"])`,
+    incorrectCredentialAlert: `[class="alert-error__text"]`,
   }
 
-  readonly emailAlreadyRegistered = {
+  readonly emailAlreadyRegisteredPopupElements = {
     message: `[class="login-selection__title"]`,
     signInButton: `[class="modal__footer"] button`,
   }
@@ -58,7 +61,19 @@ export class SignUpPage extends BasePage {
   /*==================Verification==============*/
 
   async verifyEmailAlreadyRegistered(message: string) {
-    await this.verifyTextContent(this.emailAlreadyRegistered.message, message);
-    await this.verifyElementVisible(this.emailAlreadyRegistered.signInButton);
+    await this.verifyTextContent(this.emailAlreadyRegisteredPopupElements.message, message);
+    await this.verifyElementVisible(this.emailAlreadyRegisteredPopupElements.signInButton);
+  }
+
+  async verifyEmailAlert(message: string) {
+    await this.verifyTextContent(this.signUpElements.emailAlert, message);
+  }
+
+  async verifyPasswordAlert(message: string) {
+    await this.verifyTextContent(this.signUpElements.passwordAlert, message);
+  }
+
+  async verifyIncorrectCredentialAlert(message: string) {
+    await this.verifyTextContent(this.signUpElements.incorrectCredentialAlert, message);
   }
 }
