@@ -6,8 +6,8 @@
   "scripts": {
     "allure": "allure generate ./test-output/allure-results --clean -o ./test-output/allure-report && allure open ./test-output/allure-report",
     "test:headed": "cross-env test_env=prod npx playwright test --grep-invert @wip --headed",
-    "test:ui": "cross-env test_env=prod npx playwright test --grep @ui --grep-invert @wip",
-    "test:api": "cross-env test_env=prod npx playwright test --grep @api --grep-invert @wip",
+    "test:ui": "cross-env test_env=prod npx playwright test --grep @ui --grep-invert @wip --workers=4",
+    "test:api": "cross-env test_env=prod npx playwright test --grep @api --grep-invert @wip --workers=4",
     "test:performance": "k6 run --vus 2 --duration 5s tests/performance/k6_get_user_api_test.js"
   },
   "keywords": [],
