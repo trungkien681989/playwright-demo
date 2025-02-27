@@ -4,3 +4,4 @@ node_modules/
 /playwright-report/
 /playwright/.cache/
 .DS_Store
+/summary.html
