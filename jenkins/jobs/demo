@@ -28,10 +28,10 @@ pipeline {
       }
     }
 
-    stage("Running automation test") {
+    stage("Running UI test") {
       steps {
         script{
-          sh "npm run test:smoke"
+          sh "npm run test:ui"
         }
       }
     }
