@@ -139,7 +139,7 @@ All output file and report is stored in `./testOutput` folder. You can view both
 
 ![Image](https://github.com/user-attachments/assets/f81319c4-e0fa-4be3-a135-c7a1a2c9bbaf)
 
-- Show HTML test report:
+- Show HTML test report for Playwright automation test:
 
 ```bash
    npx playwright show-report test-output/html
