@@ -34,9 +34,11 @@ const SignUpDataTest = {
 
 const SignUpDataProd = {
     "fullName": "Kevin Bui",
-    "email": "trungkien681989@gmail.com",
+    "email": "trungkien06081989@gmail.com",
+    "emailInvalidFormat": "trungkien681989@gmailcom",
     "password": "P@$$word123",
     "passwordMaximumLength": "P@$$word123401234567890123456789",
+    "passwordNotMeetCriteria": "passwordNotMeetCriteria",
     "mockResponseSuccess": {
         id: '67bd9c412e805dc73034cc16',
         email: 'trungkien681989@gmail.com',
