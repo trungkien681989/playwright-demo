@@ -10,7 +10,8 @@ Automation Framework for automating end-to-end tests based on Playwright. It pro
 6. [HTML Report](https://playwright.dev/docs/test-reporters#html-reporter)
 7. [Allure Report](https://www.npmjs.com/package/allure-playwright)
 8. Support test on multiple environments (test, prod, etc.)
-9. Integrate with CI/CD using Github Action (Can run with your Github account) or Jenkins (Need Jenkins server setup)
+9. Running smoke, regression, sanity, etc. test base on [Tags](https://playwright.dev/docs/test-annotations#tag-tests)
+10. Integrate with CI/CD using Github Action (Can run with your Github account) or Jenkins (Need Jenkins server setup)
 
 ## Framework Structure
 
