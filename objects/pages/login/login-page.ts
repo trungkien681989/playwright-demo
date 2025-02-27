@@ -10,7 +10,9 @@ export class LoginPage extends BasePage {
 
   readonly loginElements = {
     emailTextbox: `input[name="email"]`,
+    emailAlert: `(//input[@name="email"]/following::*[@role="alert"])`,
     passwordTextbox: `input[name="password"]`,
+    passwordAlert: `(//input[@name="password"]/following::*[@role="alert"])`,
     signInButton: `(//*[@id="remember-me"]/following::button)[1]`,
   }
 
@@ -23,6 +25,14 @@ export class LoginPage extends BasePage {
   }
 
   /*==================Verification==============*/
+
+  async verifyEmailAlert(message: string) {
+    await this.verifyTextContent(this.loginElements.emailAlert, message);
+  }
+
+  async verifyPasswordAlert(message: string) {
+    await this.verifyTextContent(this.loginElements.passwordAlert, message);
+  }
 
   async verifyLoginPageShow() {
     await this.verifyElementVisible(this.loginElements.emailTextbox);
