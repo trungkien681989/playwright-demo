@@ -4,20 +4,76 @@ Automation Framework for automating end-to-end tests based on Playwright. It pro
 
 1. [Page Object Model](https://playwright.dev/docs/pom)
 2. [Support multiple browser](https://playwright.dev/docs/why-playwright#support-for-all-browsers)
-3. [Paralell execute tests](https://playwright.dev/docs/test-parallel)
+3. [Parallel execute tests](https://playwright.dev/docs/test-parallel)
 4. [HTML Report](https://playwright.dev/docs/test-reporters#html-reporter)
 5. [Allure Report](https://www.npmjs.com/package/allure-playwright)
-6. Support test on multiple enviroments (test, uat, prod, etc.)
-7. Integrate with CI/CD using Github Action
+6. Support test on multiple environments (test, prod, etc.)
+7. Integrate with CI/CD using Github Action (Can run with your Github account) or Jenkins (Need Jenkins server setup)
+
+## Framework Structure
+
+This project follows [playwright pom](https://playwright.dev/docs/pom). Besides, some key utility files and directories are explained as below:
+
+```
+├── AutomationProcessInScrumTeam.pptx
+├── ELSA_Speech_Analyzer_test_cases.xlsx
+├── LICENSE
+├── README.md
+├── environments                        ---> provide test environment parameters
+├── helper                              ---> util functions to make code DRY(er)
+│   ├── env-config.ts
+│   └── global-setup.ts
+├── jenkins                             ---> CI/CD using Jenkins
+│   └── jobs
+│       └── demo
+├── .github                             ---> CI/CD using Github Actions
+│   └── workflows
+│       └── playwright.yml
+├── objects
+│   ├── apis                            ---> store API object classes
+│   │   └── user-me-api.ts
+│   └── pages                           ---> store POM classes
+│       ├── base
+│       │   └── base-page.ts
+│       ├── login
+│       │   └── login-page.ts
+│       ├── signup
+│       │   └── signup-page.ts
+│       └── welcome
+│           └── welcome-page.ts
+├── package-lock.json
+├── package.json
+├── playwright.config.js
+├── summary.html
+├── test-data                           ---> test data loaded base on test environment
+│   ├── login
+│   │   ├── token.json
+│   │   └── valid-login-data.ts
+│   ├── signup
+│   │   ├── signup-data.ts
+│   │   └── signup-message-data.ts
+│   └── user
+│       └── user-data.ts
+└── tests
+    ├── api                             ---> api test using Playwright APIRequestContext
+    │   └── get_user.spec.ts
+    ├── performance                     ---> performance for api using K6
+    │   └── k6_get_user_api_test.js
+    └── ui                              ---> ui test cases using Playwright Browsers
+        ├── login.spec.ts
+        └── signup.spec.ts
+```
 
 ## Installation
 
 The following software are required:
 
 - Nodejs : Download and Install Node JS from
+
   ```sh
   https://nodejs.org/en/download/
   ```
+
 - Install Java 8 or above, Allure Reports require Java 8 or higher.
 
 ## Setup
@@ -35,7 +91,7 @@ The following software are required:
    npx playwright install --with-deps
    ```
 
-4. Finnaly run the following command to install cross environment:
+4. Finally run the following command to install cross environment:
 
    ```bash
    npm install -g cross-env
@@ -45,22 +101,29 @@ The following software are required:
 
 From the command line in the project's root directory:
 
-- Running the tests on PROD environment. By default tests will run without UI (headless mode):
+- Running the smoke tests on PROD environment. By default tests will run without UI (headless mode):
 
 ```bash
-   npm run test:prod
+   npm run test:smoke
 ```
 
-- You can also run the tests on PROD environment with UI (headed mode):
+- Running the regression tests on PROD environment. By default tests will run without UI (headless mode):
 
 ```bash
-   npm run test:prod-headed
+   npm run test:regression
 ```
 
-## Tests Output
+- You can also run all test cases on PROD environment with UI (headed mode):
 
-- After the test finish. An output JSON file named `output.json` will be generated in the root directory. It contains weather info (Temperature, Humidity) of Singapore for Day and Night in next 10 days.
-- The weather info output will also be available in console and in Allure, HTML reports.
+```bash
+   npm run test:headed
+```
+
+- You can run performance test with K6:
+
+```bash
+   npm run test:performance
+```
 
 ## Tests Report
 
@@ -90,7 +153,7 @@ All output file and report is stored in `./testOutput` folder. You can view both
 
 The tests can be triggered on the cloud using Github Action. Below is an example of a run:
 
-https://github.com/trungkien681989/playwright-demo/actions/runs/4461520231
+<https://github.com/trungkien681989/playwright-demo/actions/runs/4461520231>
 
 ![image](https://user-images.githubusercontent.com/49904115/226184232-7eb11123-75af-4854-8f8b-66861607d2fa.png)
 
