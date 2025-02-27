@@ -55,7 +55,7 @@ const config = {
 
     launchOptions: {
       args: ["--start-maximized"],
-      slowMo: 500,
+      slowMo: 1000,
     },
     screenshot: 'only-on-failure',
   },
