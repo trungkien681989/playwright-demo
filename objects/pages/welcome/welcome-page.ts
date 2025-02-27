@@ -9,7 +9,7 @@ export class WelcomePage extends BasePage {
   /* ============ Elements =============== */
 
   readonly welcomeElements = {
-    getStartedButton: `button>>text=Get Started`,
+    getStartedButton: `[class="welcome-screen__wrap-btn"] button`,
   }
 
   /* ============ Methods =============== */
