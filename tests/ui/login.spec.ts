@@ -9,7 +9,7 @@ const validLoginData: any = ValidLoginData();
 const invalidLoginData: any = InvalidLoginData();
 
 validLoginData.array.forEach(data => {
-    test(`Test successful login with valid email ${data.email} @ui @smoke @regression`, async ({ browser }) => {
+    test(`Login_01 Test successful login with valid email ${data.email} @ui @smoke @regression`, async ({ browser }) => {
         const context = await browser.newContext();
         const page = await context.newPage();
         const loginPage = new LoginPage(page);
@@ -28,7 +28,24 @@ validLoginData.array.forEach(data => {
     });
 })
 
-test(`Test login with wrong input @ui @regression`, async ({ browser }) => {
+test(`Login_11 Test login with an invalid email format @ui @regression`, async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const loginPage = new LoginPage(page);
+
+    await test.step('Open Login Page', async () => {
+        await loginPage.goto(`${ENV.LOGIN_URL}`);
+    });
+
+    await test.step('Login with an invalid email format', async () => {
+        await loginPage.login(invalidLoginData.emailInvalidFormat, validLoginData.array[0].password);
+        await loginPage.verifyEmailAlert('Email is invalid');
+    });
+
+    await context.close();
+});
+
+test(`Login_12 Test login with incorrect credentials @ui @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const loginPage = new LoginPage(page);
@@ -38,34 +55,37 @@ test(`Test login with wrong input @ui @regression`, async ({ browser }) => {
         await loginPage.goto(`${ENV.LOGIN_URL}`);
     });
 
-    await test.step('Test login with an invalid email format', async () => {
-        await loginPage.login(invalidLoginData.emailInvalidFormat, validLoginData.array[0].password);
-        await loginPage.verifyEmailAlert('Email is invalid');
-    });
-
-    await test.step('Test login with blank email', async () => {
-        await loginPage.login('', validLoginData.array[0].password);
-        await loginPage.verifyEmailAlert('Email is required');
-    });
-
-    await test.step('Test login with blank password', async () => {
-        await loginPage.login(validLoginData.array[0].email, '');
-        await loginPage.verifyEmailAlert('Password is required');
-    });
-
-    await test.step('Test login with wrong email and correct password', async () => {
+    await test.step('Login with wrong email and correct password', async () => {
         await loginPage.login(invalidLoginData.wrongEmail, validLoginData.array[0].password);
         await loginPage.verifyIncorrectCredentialAlert(invalidCredential);
     });
 
-    await test.step('Test login with correct email and wrong password', async () => {
+    await test.step('Login with correct email and wrong password', async () => {
         await loginPage.login(validLoginData.array[0].email, invalidLoginData.wrongPassword);
         await loginPage.verifyIncorrectCredentialAlert(invalidCredential);
     });
 
-    await test.step('Test login with wrong email and wrong password', async () => {
+    await test.step('Login with wrong email and wrong password', async () => {
         await loginPage.login(invalidLoginData.wrongEmail, invalidLoginData.wrongPassword);
         await loginPage.verifyIncorrectCredentialAlert(invalidCredential);
+    });
+
+    await context.close();
+});
+
+test(`Login_13 Test login when both fields are empty @ui @regression`, async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const loginPage = new LoginPage(page);
+
+    await test.step('Open Login Page', async () => {
+        await loginPage.goto(`${ENV.LOGIN_URL}`);
+    });
+
+    await test.step('Login when both fields are empty', async () => {
+        await loginPage.login('', '');
+        await loginPage.verifyEmailAlert('Email is required');
+        await loginPage.verifyPasswordAlert('Password is required');
     });
 
     await context.close();
