@@ -1,4 +1,4 @@
-name: Demo run Smoke Tests using Github Action
+name: Demo run UI Tests using Github Action
 
 on:
   workflow_dispatch:
