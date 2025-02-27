@@ -8,7 +8,7 @@ import { LoginPage } from '../../objects/pages/login/login-page';
 const signupData: any = SignUpData();
 const signupMessageData: any = SignupMessageData();
 
-test(`Test successful registration with valid data using mock response @ui @smoke @regression`, async ({ browser }) => {
+test(`Signup_01 Test successful registration with valid data @ui @mock @smoke @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
@@ -26,25 +26,7 @@ test(`Test successful registration with valid data using mock response @ui @smok
     await context.close();
 });
 
-test(`Test successful registration with password maximum length using mock response @ui @regression`, async ({ browser }) => {
-    const context = await browser.newContext();
-    const page = await context.newPage();
-    const signUpPage = new SignUpPage(page);
-    const loginPage = new LoginPage(page);
-
-    await test.step('Open Sign Up Page', async () => {
-        await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
-    });
-
-    await test.step('Signup successfully using mock response', async () => {
-        await signUpPage.signUpMock(signupData.mockResponseSuccess.fullname, signupData.mockResponseSuccess.email, signupData.passwordMaximumLength, 200, signupData.mockResponseSuccess);
-        await loginPage.verifyLoginPageShow();
-    });
-
-    await context.close();
-});
-
-test(`Test successful registration with email has special characters using mock response @ui @regression`, async ({ browser }) => {
+test(`Signup_11 Test the sign-up process with an email containing special characters response @ui @mock @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
@@ -62,41 +44,25 @@ test(`Test successful registration with email has special characters using mock 
     await context.close();
 });
 
-test(`Test email already registered using mock response @ui @regression`, async ({ browser }) => {
+test(`Signup_13 Test the sign-up process with the password at the maximum length supported response @ui @mock @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
+    const loginPage = new LoginPage(page);
 
     await test.step('Open Sign Up Page', async () => {
         await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
     });
 
-    await test.step('Signup with Email already registered using mock response', async () => {
-        await signUpPage.signUpMock(signupData.fullName, signupData.email, signupData.password, 409, signupData.mockResponseEmailAlreadyRegistered);
-        await signUpPage.verifyEmailAlreadyRegistered(signupMessageData.emailAlreadyRegisteredMessage);
+    await test.step('Signup successfully using mock response', async () => {
+        await signUpPage.signUpMock(signupData.mockResponseSuccess.fullname, signupData.mockResponseSuccess.email, signupData.passwordMaximumLength, 200, signupData.mockResponseSuccess);
+        await loginPage.verifyLoginPageShow();
     });
 
     await context.close();
 });
 
-test(`Test email already registered using real response @ui @regression`, async ({ browser }) => {
-    const context = await browser.newContext();
-    const page = await context.newPage();
-    const signUpPage = new SignUpPage(page);
-
-    await test.step('Open Sign Up Page', async () => {
-        await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
-    });
-
-    await test.step('Signup with Email already registered using mock response', async () => {
-        await signUpPage.signUp(signupData.fullName, signupData.email, signupData.password);
-        await signUpPage.verifyEmailAlreadyRegistered(signupMessageData.emailAlreadyRegisteredMessage);
-    });
-
-    await context.close();
-});
-
-test(`Test the system's behavior when the email format is invalid @ui @regression`, async ({ browser }) => {
+test(`Signup_14 Test the system's behavior when the email format is invalid @ui @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
@@ -113,7 +79,7 @@ test(`Test the system's behavior when the email format is invalid @ui @regressio
     await context.close();
 });
 
-test(`Test the system when the password does not meet the required format @ui @regression`, async ({ browser }) => {
+test(`Signup_15 Test the system when the password does not meet the required format @ui @regression`, async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const signUpPage = new SignUpPage(page);
@@ -125,6 +91,40 @@ test(`Test the system when the password does not meet the required format @ui @r
     await test.step('Signup with the password does not meet the required format', async () => {
         await signUpPage.signUp(signupData.fullName, signupData.email, signupData.passwordNotMeetCriteria);
         await signUpPage.verifyIncorrectCredentialAlert('The email address or password you entered is invalid');
+    });
+
+    await context.close();
+});
+
+test(`Signup_16 Test sign-up with an email that is already in use using mock response @ui @mock @regression`, async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const signUpPage = new SignUpPage(page);
+
+    await test.step('Open Sign Up Page', async () => {
+        await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
+    });
+
+    await test.step('Signup with Email already registered using mock response', async () => {
+        await signUpPage.signUpMock(signupData.fullName, signupData.email, signupData.password, 409, signupData.mockResponseEmailAlreadyRegistered);
+        await signUpPage.verifyEmailAlreadyRegistered(signupMessageData.emailAlreadyRegisteredMessage);
+    });
+
+    await context.close();
+});
+
+test(`Signup_16 Test sign-up with an email that is already in use @ui @regression`, async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const signUpPage = new SignUpPage(page);
+
+    await test.step('Open Sign Up Page', async () => {
+        await signUpPage.goto(`${ENV.SIGN_UP_URL}`);
+    });
+
+    await test.step('Signup with Email already registered using mock response', async () => {
+        await signUpPage.signUp(signupData.fullName, signupData.email, signupData.password);
+        await signUpPage.verifyEmailAlreadyRegistered(signupMessageData.emailAlreadyRegisteredMessage);
     });
 
     await context.close();
