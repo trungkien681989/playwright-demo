@@ -102,10 +102,22 @@ The following software are required:
 
 From the command line in the project's root directory:
 
-- Running the ui tests on PROD environment. By default tests will run in headless mode:
+- Running the ui tests on PROD environment. By default tests will run in headless mode for 2 browser chrome and firefox:
 
 ```bash
    npm run test:ui
+```
+
+- Running the ui tests on PROD environment with browser chrome:
+
+```bash
+   npm run test:ui-chrome
+```
+
+- Running the ui tests on PROD environment with browser firefox:
+
+```bash
+   npm run test:ui-firefox
 ```
 
 - Running the api tests on PROD environment.
