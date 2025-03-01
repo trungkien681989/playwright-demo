@@ -1,6 +1,6 @@
 ## Getting Started
 
-Automation Framework for automating end-to-end tests based on Playwright and K6. It provides features as below:
+Automation Framework for automating ui, api, perforrmance tests based on Playwright and K6. It provides features as below:
 
 1. [API Testing with Playwright](https://playwright.dev/docs/api-testing)
 2. [Performance Testing with K6](https://grafana.com/docs/k6/latest/)
