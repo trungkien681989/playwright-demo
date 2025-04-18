@@ -140,7 +140,7 @@ From the command line in the project's root directory:
    npx playwright show-report test-output/html
 ```
 
-![Image](https://github.com/user-attachments/assets/77521ec3-6b64-412c-b49a-cbe195cabe01)
+![Image](https://github.com/user-attachments/assets/6cc4470e-8c36-443f-99f0-481c7672bade)
 
 - Generate Allure report for Playwright test:
 
