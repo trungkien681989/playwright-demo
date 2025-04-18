@@ -32,37 +32,35 @@ Automation Framework for automating ui, api, perforrmance tests based on Playwri
 │       └── playwright.yml
 ├── objects
 │   ├── apis                            ---> store API object classes
-│   │   └── user-me-api.ts
+│   │   └── employee-api.ts
 │   └── pages                           ---> store POM classes
 │       ├── base
 │       │   └── base-page.ts
 │       ├── login
 │       │   └── login-page.ts
-│       ├── signup
-│       │   └── signup-page.ts
-│       └── welcome
-│           └── welcome-page.ts
+│       └── dashboard
+│           └── dashboard-page.ts
+├── storage-state
+│   └── search.json                     ---> store login state to make tests run faster
 ├── package-lock.json
 ├── package.json
 ├── playwright.config.js
-├── summary.html
+├── summary.html                        ---> k6 HTML report
 ├── test-data                           ---> test data loaded base on test environment
 │   ├── login
-│   │   ├── token.json
+│   │   ├── cookie.json
+│   │   ├── invalid-login-data.ts
 │   │   └── valid-login-data.ts
-│   ├── signup
-│   │   ├── signup-data.ts
-│   │   └── signup-message-data.ts
-│   └── user
-│       └── user-data.ts
+│   └── employee
+│       └── employee-data.ts
 └── tests
     ├── api                             ---> api test using Playwright APIRequestContext
-    │   └── get_user.spec.ts
+    │   └── get_employee_action_summary.spec.ts
     ├── performance                     ---> performance for api using K6
-    │   └── k6_get_user_api_test.js
+    │   └── k6_get_employee_action_summary_api_test.js
     └── ui                              ---> ui test cases using Playwright Browsers
         ├── login.spec.ts
-        └── signup.spec.ts
+        └── search.spec.ts
 ```
 
 ## Installation

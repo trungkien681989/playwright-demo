@@ -2,8 +2,7 @@ const InvalidLoginDataTest = {
 }
 
 const InvalidLoginDataProd = {
-    "emailInvalidFormat": "trungkien681989@gmailcom",
-    "wrongEmail": "trungkien1681989@gmail.com",
+    "wrongUsername": "Kien",
     "wrongPassword": "P@$$word1234",
 }
 
