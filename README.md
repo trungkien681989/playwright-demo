@@ -148,9 +148,7 @@ From the command line in the project's root directory:
     npm run allure
 ```
 
-![Image](https://github.com/user-attachments/assets/beddda89-de47-4269-95f1-6aff4dd78b47)
-
-![Image](https://github.com/user-attachments/assets/f81319c4-e0fa-4be3-a135-c7a1a2c9bbaf)
+![Image](https://github.com/user-attachments/assets/1e6ed291-9f9d-4aac-aafa-3563cee2b284)
 
 ### Show HTML test report for K6 performance test
 
@@ -158,15 +156,15 @@ From the command line in the project's root directory:
    open ./summary.html
 ```
 
-![Image](https://github.com/user-attachments/assets/1d2a3614-9bf5-40cb-a342-c4261e72280d)
+![Image](https://github.com/user-attachments/assets/90a5954f-404b-4bf9-8df5-c65f4be413a4)
 
 ## Github Action
 
 The tests can be triggered on the cloud using Github Action. Below is an example of a run:
 
-<https://github.com/trungkien681989/playwright-demo/actions/runs/13569818157>
+<https://github.com/trungkien681989/playwright-demo/actions/runs/14533704952>
 
-![Image](https://github.com/user-attachments/assets/25db0a6f-26ab-4989-a8c9-5c1265968b6b)
+![Image](https://github.com/user-attachments/assets/18691d27-c868-4fcc-95cb-85d49c69d317)
 
 Playwright HTML test report can be downloaded from the Artifacts:
 
